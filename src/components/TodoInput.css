@@ -1,0 +1,12 @@
+.app-input{
+  background-color: #343a40;
+  border: 0;
+  color: #FFF;
+  width: 400px;
+  margin: 0 auto;
+  display: block;
+  padding: 10px 15px;
+  font-size: 20px;
+  border: solid 1px #30343b;
+  border-radius: 4px;
+}

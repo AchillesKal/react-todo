@@ -1,0 +1,8 @@
+.app-header{
+  font-family: 'La Belle Aurore',
+  cursive;
+  text-align: center;
+  border-bottom: solid 1px #343a40;
+  line-height: 60px;
+  margin: 0;
+}
