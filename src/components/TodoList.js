@@ -1,17 +1,26 @@
-import React from 'react';
+import React, { useRef } from 'react';
+
+import './TodoList.css';
 
 function TodoLit(props) {
 
+  const inputElement = useRef(null);
+  const { onDeleteTodo } = props;
+
+  function handleTodoDelete(id) {
+    onDeleteTodo(id);
+  }
+
   const { todos } = props;
 
-  console.log(props);
-
   return (
-    <div>
+    <div className="app-list">
       {
         todos.map((todo, index) => (
-          <div key={index}>
-            {index}. {todo}
+          <div className="app-list-row" key={index}>
+            <input type="checkbox" />
+            {index + 1}. {todo}
+            <button onClick = {() => handleTodoDelete(index)}>X</button>
           </div>
         ))
        }

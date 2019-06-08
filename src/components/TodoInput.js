@@ -4,14 +4,19 @@ import './TodoInput.css';
 
 function TodoInput(props) {
   const inputElement = useRef(null);
-  const { onNewTodoSubmit } = props;
+  const { onAddTodo } = props;
 
   function handleFormSubmit(event) {
     event.preventDefault();
 
     const todoInput = inputElement.current;
 
-    onNewTodoSubmit(todoInput.value);
+    if(todoInput.value == '') {
+      return;
+    }
+
+    onAddTodo(todoInput.value);
+    todoInput.value = '';
   };
 
   return (

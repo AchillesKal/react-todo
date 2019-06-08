@@ -1,0 +1,14 @@
+.app-footer{
+  box-sizing: border-box;
+  width: 515px;
+  margin: 0 auto;
+  padding: 10px 40px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.app-footer-links{
+  width: 35%;
+  display: flex;
+  justify-content: space-between
+}

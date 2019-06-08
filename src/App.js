@@ -4,6 +4,7 @@ import './App.css';
 import AppHeader from './components/AppHeader';
 import TodoInput from './components/TodoInput';
 import TodoList from './components/TodoList';
+import AppFooter from './components/AppFooter';
 
 class App extends Component {
   constructor(props) {
@@ -12,14 +13,24 @@ class App extends Component {
       todos: []
     };
 
-    this.onNewTodoSubmit = this.onNewTodoSubmit.bind(this);
+    this.handleAddTodo = this.handleAddTodo.bind(this);
+    this.handleDeleteTodo = this.handleDeleteTodo.bind(this);
   }
 
-  onNewTodoSubmit(todo) {
-    const todos = this.state.todos;
+  handleAddTodo(todo) {
+    this.setState(prevState => {
+      const newTodos = [...prevState.todos, todo];
+      return {todos: newTodos};
+    });
+  }
 
-    todos.push(todo);
-    this.setState({todos: todos});
+  handleDeleteTodo(todoId) {
+    this.setState(prevState => {
+      const newTodos = [...prevState.todos];
+      newTodos.splice(todoId, 1);
+
+      return { todos: newTodos };
+    });
   }
 
   render() {
@@ -27,9 +38,10 @@ class App extends Component {
       <div className="app">
         <AppHeader />
         <div className="app-main">
-          <TodoInput onNewTodoSubmit={this.onNewTodoSubmit} />
-          <TodoList todos={this.state.todos} />
+          <TodoInput onAddTodo={this.handleAddTodo} />
+          <TodoList todos={this.state.todos} onDeleteTodo={this.handleDeleteTodo} />
         </div>
+        <AppFooter todos={this.state.todos} />
       </div>
     );
   }
