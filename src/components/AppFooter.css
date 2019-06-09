@@ -12,3 +12,18 @@
   display: flex;
   justify-content: space-between
 }
+
+.app-footer-links a{
+  color: #FFF;
+  text-decoration: none;
+  text-transform: capitalize;
+  padding: 5px;
+}
+
+.app-footer-links a.active {
+  color: #FFF;
+  text-decoration: none;
+  text-transform: capitalize;
+  border: solid 1px #fff;
+  padding: 5px;
+}

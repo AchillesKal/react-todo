@@ -3,7 +3,11 @@ import React from 'react';
 import './AppFooter.css';
 
 function AppFooter(props) {
-  const {todos} = props;
+  const { todos, filters, onComplete} = props;
+
+  function handleTodoFilter(filter){
+    onComplete(filter);
+  }
 
   return (
     <div className="app-footer">
@@ -12,9 +16,11 @@ function AppFooter(props) {
       </div>
 
       <div className="app-footer-links">
-        <a>All</a>
-        <a>Active</a>
-        <a>Completed</a>
+        {
+          Object.keys(filters).map(function (key) {
+            return <a onClick={() => handleTodoFilter(key)} href="#" key={key}>{key}</a>;
+          })
+        }
       </div>
     </div>
   );

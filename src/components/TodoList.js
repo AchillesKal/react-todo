@@ -6,6 +6,11 @@ function TodoLit(props) {
 
   const inputElement = useRef(null);
   const { onDeleteTodo } = props;
+  const { onCompleteTodo } = props;
+
+  function handleTodoComplete(id) {
+    onCompleteTodo(id);
+  }
 
   function handleTodoDelete(id) {
     onDeleteTodo(id);
@@ -18,9 +23,11 @@ function TodoLit(props) {
       {
         todos.map((todo, index) => (
           <div className="app-list-row" key={index}>
-            <input type="checkbox" />
-            {index + 1}. {todo}
-            <button onClick = {() => handleTodoDelete(index)}>X</button>
+            <input checked={todo.completed} onClick={() => handleTodoComplete(index)} className="todo-checkbox" type="checkbox" />
+            <div className="todo-content">
+              {index + 1}. {todo.task}
+            </div>
+            <button className="todo-complete" onClick = {() => handleTodoDelete(index)}>X</button>
           </div>
         ))
        }

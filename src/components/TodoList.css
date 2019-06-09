@@ -1,3 +1,12 @@
 .app-list{
   margin-top: 20px;
 }
+
+.app-list-row{
+  display: flex;
+  justify-content: space-between;
+}
+
+.todo{
+
+}
