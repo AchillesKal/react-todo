@@ -10,3 +10,27 @@
 .todo{
 
 }
+
+.todo-content{
+  width: -webkit-calc(100% - 65px);
+  width: -moz-calc(100% - 65px);
+  width: calc(100% - 65px);
+  padding-left: 20px;
+}
+
+.todo-complete{
+  padding: 0;
+  background: transparent;
+  border: 0;
+  color: #FFF;
+  width: 40px;
+  font-size: 25px;
+  cursor: pointer;
+}
+
+.todo-check-wrap{
+  width: 25px;
+  font-size: 25px;
+  text-align: center;
+  cursor: pointer;
+}

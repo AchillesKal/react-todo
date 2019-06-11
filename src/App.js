@@ -11,6 +11,7 @@ class App extends Component {
     super(props);
     this.state = {
       todos: [],
+      currentTodoId: 0,
       filters: {
         "all": true,
         "active": false,
@@ -26,13 +27,16 @@ class App extends Component {
 
   handleAddTodo(todo) {
     this.setState(prevState => {
+      const newId = prevState.currentTodoId + 1;
+
       const newTodo = {
+        id: newId,
         task: todo,
         completed: 0
       }
 
       const newTodos = [...prevState.todos, newTodo];
-      return {todos: newTodos};
+      return { todos: newTodos, currentTodoId: newId};
     });
   }
 
@@ -51,9 +55,11 @@ class App extends Component {
 
       for (let i = 0; i < newTodos.length; i++) {
         if (i == todoId) {
+          let newTodoStatus = !newTodos[i].completed;
+
           newTodos[i] = {
             'task': newTodos[i].task,
-            'completed': 1
+            'completed': newTodoStatus
           };
         }
       }

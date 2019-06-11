@@ -1,4 +1,7 @@
 import React, { useRef } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTimesCircle } from '@fortawesome/free-solid-svg-icons';
+import TodoCheck from './TodoCheck';
 
 import './TodoList.css';
 
@@ -23,11 +26,15 @@ function TodoLit(props) {
       {
         todos.map((todo, index) => (
           <div className="app-list-row" key={index}>
-            <input checked={todo.completed} onClick={() => handleTodoComplete(index)} className="todo-checkbox" type="checkbox" />
+            <div onClick={() => handleTodoComplete(index)} className="todo-check-wrap">
+              <TodoCheck status={todo.completed} />
+            </div>
             <div className="todo-content">
               {index + 1}. {todo.task}
             </div>
-            <button className="todo-complete" onClick = {() => handleTodoDelete(index)}>X</button>
+            <button className="todo-complete" onClick={() => handleTodoDelete(index)}>
+              <FontAwesomeIcon icon={faTimesCircle} />
+            </button>
           </div>
         ))
        }

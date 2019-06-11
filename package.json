@@ -32,6 +32,7 @@
     ]
   },
   "devDependencies": {
-    "react-test-renderer": "^16.8.6"
+    "react-test-renderer": "^16.8.6",
+    "uuid": "^3.3.2"
   }
 }
