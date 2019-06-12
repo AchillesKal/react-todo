@@ -16,6 +16,8 @@
   width: -moz-calc(100% - 65px);
   width: calc(100% - 65px);
   padding-left: 20px;
+  font-size: 22px;
+  text-transform: capitalize;
 }
 
 .todo-complete{
@@ -33,4 +35,8 @@
   font-size: 25px;
   text-align: center;
   cursor: pointer;
+}
+
+.todo-text.completed{
+    text-decoration: line-through;
 }

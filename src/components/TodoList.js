@@ -25,14 +25,15 @@ function TodoLit(props) {
     <div className="app-list">
       {
         todos.map((todo, index) => (
-          <div className="app-list-row" key={index}>
-            <div onClick={() => handleTodoComplete(index)} className="todo-check-wrap">
+          <div className="app-list-row" key={todo.id}>
+            <div onClick={() => handleTodoComplete(todo.id)} className="todo-check-wrap">
               <TodoCheck status={todo.completed} />
             </div>
             <div className="todo-content">
-              {index + 1}. {todo.task}
+              {index + 1}. <span className={"todo-text " + (todo.completed ? 'completed' : '')}>{todo.task}</span>
             </div>
-            <button className="todo-complete" onClick={() => handleTodoDelete(index)}>
+
+            <button className="todo-complete" onClick={() => handleTodoDelete(todo.id)}>
               <FontAwesomeIcon icon={faTimesCircle} />
             </button>
           </div>

@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import uuid from 'uuid/v4';
 import './App.css';
 
 import AppHeader from './components/AppHeader';
@@ -11,7 +12,6 @@ class App extends Component {
     super(props);
     this.state = {
       todos: [],
-      currentTodoId: 0,
       filters: {
         "all": true,
         "active": false,
@@ -27,23 +27,26 @@ class App extends Component {
 
   handleAddTodo(todo) {
     this.setState(prevState => {
-      const newId = prevState.currentTodoId + 1;
-
       const newTodo = {
-        id: newId,
+        id: uuid(),
         task: todo,
         completed: 0
       }
 
       const newTodos = [...prevState.todos, newTodo];
-      return { todos: newTodos, currentTodoId: newId};
+      return { todos: newTodos};
     });
   }
 
   handleDeleteTodo(todoId) {
     this.setState(prevState => {
       const newTodos = [...prevState.todos];
-      newTodos.splice(todoId, 1);
+
+      for (let i = 0; i < newTodos.length; i++) {
+        if (newTodos[i].id == todoId) {
+          newTodos.splice(i, 1);
+        }
+      }
 
       return { todos: newTodos };
     });
@@ -54,10 +57,11 @@ class App extends Component {
       const newTodos = [...prevState.todos];
 
       for (let i = 0; i < newTodos.length; i++) {
-        if (i == todoId) {
+        if (newTodos[i].id == todoId) {
           let newTodoStatus = !newTodos[i].completed;
 
           newTodos[i] = {
+            'id': newTodos[i].id,
             'task': newTodos[i].task,
             'completed': newTodoStatus
           };
