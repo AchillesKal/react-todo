@@ -94,6 +94,8 @@ class App extends Component {
       if (filters[key] === true){
         currentFilter = key;
       }
+
+      return key;
     });
 
     return currentFilter;
