@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimesCircle } from '@fortawesome/free-solid-svg-icons';
 import TodoCheck from './TodoCheck';
@@ -7,7 +7,6 @@ import './TodoList.css';
 
 function TodoLit(props) {
 
-  const inputElement = useRef(null);
   const { onDeleteTodo } = props;
   const { onCompleteTodo } = props;
 

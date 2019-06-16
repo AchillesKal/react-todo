@@ -43,7 +43,7 @@ class App extends Component {
       const newTodos = [...prevState.todos];
 
       for (let i = 0; i < newTodos.length; i++) {
-        if (newTodos[i].id == todoId) {
+        if (newTodos[i].id === todoId) {
           newTodos.splice(i, 1);
         }
       }
@@ -57,7 +57,7 @@ class App extends Component {
       const newTodos = [...prevState.todos];
 
       for (let i = 0; i < newTodos.length; i++) {
-        if (newTodos[i].id == todoId) {
+        if (newTodos[i].id === todoId) {
           let newTodoStatus = !newTodos[i].completed;
 
           newTodos[i] = {
@@ -105,17 +105,13 @@ class App extends Component {
 
 
     let newTodos = todos.filter((todo) => {
-
-      console.log(todo)
-      if (currentFilter == "active") {
-        return todo.completed == 0;
-
-      } else if (currentFilter == "completed") {
-        return todo.completed == 1;
+      if (currentFilter === "active") {
+        return todo.completed === 0;
+      } else if (currentFilter === "completed") {
+        return todo.completed === 1;
       } else {
         return todo;
       }
-
     })
 
     return newTodos;

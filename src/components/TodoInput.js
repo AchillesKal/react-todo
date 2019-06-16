@@ -11,7 +11,7 @@ function TodoInput(props) {
 
     const todoInput = inputElement.current;
 
-    if(todoInput.value == '') {
+    if(todoInput.value === '') {
       return;
     }
 

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import './AppFooter.css';
 
@@ -11,7 +12,7 @@ function AppFooter(props) {
 
   return (
     <div className="app-footer">
-      <div>
+      <div className="app-footer-counter">
         Tasks: {todos.length}
       </div>
 
@@ -25,5 +26,10 @@ function AppFooter(props) {
     </div>
   );
 }
+
+AppFooter.propTypes = {
+  todos: PropTypes.array.isRequired,
+  onComplete: PropTypes.func.isRequired
+};
 
 export default AppFooter;
