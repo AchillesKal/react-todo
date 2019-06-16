@@ -19,7 +19,7 @@ function AppFooter(props) {
       <div className="app-footer-links">
         {
           Object.keys(filters).map(function (key) {
-            return <a onClick={() => handleTodoFilter(key)} href="#" key={key}>{key}</a>;
+            return <button onClick={() => handleTodoFilter(key)} href="#" key={key}>{key}</button>;
           })
         }
       </div>
