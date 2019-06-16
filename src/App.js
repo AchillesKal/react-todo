@@ -30,7 +30,7 @@ class App extends Component {
       const newTodo = {
         id: uuid(),
         task: todo,
-        completed: 0
+        completed: false
       }
 
       const newTodos = [...prevState.todos, newTodo];
